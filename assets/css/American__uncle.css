@@ -1,0 +1,55 @@
+section.revised__section {
+    background-image: url('/images/bg/body_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+    margin: 100px 0 0 0;
+    padding: 100px 0;
+}
+
+div.revised_wrap {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding: 0;
+    text-align: center;
+}
+
+div.revised_text {
+    width: 40%;
+    display: block;
+    position: relative;
+    left: 10%;
+}
+
+div.revised_text>div:nth-child(1) {
+    font-size: 1.5em;
+    padding: 1em 0 1em 0;
+}
+
+div.revised_text>div:nth-child(2) {
+    font-size: 2em;
+    font-weight: 500;
+    padding: 0 0 1em 0;
+}
+
+div.revised_text>div:nth-child(2)>span {
+    font-size: 2.5em;
+    font-weight: 900;
+    padding: 2rem 0 0 0;
+}
+
+div.revised_text>div:nth-child(3) {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.revised_text {
+    float: left;
+}
+
+div.revised_pic__american img {
+    border-radius: 5px;
+    margin-top: 1.5em;
+}

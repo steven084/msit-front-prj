@@ -1,0 +1,96 @@
+.container6.serve {
+    width: 100%;
+    background-color: #fff;
+    padding: 60px;
+}
+
+.container6.serve img {
+    margin: auto;
+    display: block;
+}
+
+.container6.six_big {
+    width: 100%;
+    background-color: #fff;
+    padding: 60px;
+}
+
+.container6.six_big img {
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+
+/* 多樣服務 */
+
+.multiple_services {
+    background-color: rgb(238, 58, 127);
+    color: #fff;
+}
+
+.multiple_services .multiple_services_subtitle {
+    padding-top: 4em;
+    font-family: "微軟正黑體";
+    text-align: center;
+}
+
+.multiple_services .multiple_services_subtitle>span {
+    padding: 20px 0;
+    color: #fff;
+}
+
+.multiple_services .multiple_services_subtitle>span:nth-child(1) {
+    font-size: 6vmin;
+    font-weight: 900;
+}
+
+.multiple_services .multiple_services_subtitle>span:nth-child(2) {
+    font-size: 3vmin;
+    font-weight: 500;
+}
+
+
+/* rwTable */
+
+.rwdTable {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+.rwdTr {
+    display: table-row;
+}
+
+.rwdTd {
+    width: 33%;
+    padding: 4em 4em;
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+}
+
+.rwdTd h3 {
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+.rwdTd span {
+    text-align: initial;
+}
+
+
+/* fe-btn */
+
+button.fe-btn {
+    vertical-align: center;
+    margin: 0;
+    color: #fff;
+    font-size: 3vmin;
+    background-color: lightcoral;
+    padding: 1.5em 1.5em;
+    border-radius: 5px;
+}

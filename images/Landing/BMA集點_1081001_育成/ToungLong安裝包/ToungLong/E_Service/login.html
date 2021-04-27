@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>東隆管理系統</title>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font/Nunito.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="vendor/custom/css/sb-admin-2.css" rel="stylesheet">
+    <link href="vendor/custom/css/loader.css" rel="stylesheet">
+    <link href="vendor/custom/css/custom.css" rel="stylesheet">
+    <style type="text/css">
+    .code {
+        background: url(code_bg.jpg);
+        font-family: Arial;
+        font-style: italic;
+        color: blue;
+        font-size: 30px;
+        border: 0;
+        padding: 2px 3px;
+        letter-spacing: 3px;
+        font-weight: bolder;
+        float: left;
+        cursor: pointer;
+        width: 150px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        vertical-align: middle;
+
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 12px;
+        color: #288bc4;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+
+<body class="bg-gradient-primary">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <!-- <form method="post" onsubmit="return login_submit()"> -->
+                                    <form method="post" onsubmit="validateCode(); return false;">
+                                        <div class="form-group">
+                                            <input type="text" name="inputAccount" class="form-control form-control-user" placeholder="請輸入帳號" required="required" autofocus="autofocus">
+                                        </div>
+                                        <div class="form-group">
+                                            <!-- <input type="password" name="inputPassword" class="form-control form-control-user" placeholder="請輸入密碼" minlength="4" pattern="(?=^[A-Za-z0-9]{4,12}$)^.*$" required="required"> -->
+                                            <input type="password" name="inputPassword" class="form-control form-control-user" placeholder="請輸入密碼" required="required">
+                                        </div>
+                                        <div>
+                                            <div class="form-group">
+                                                <input type="text" id="inputCode" class="form-control form-control-user" placeholder="請輸入驗證碼" required="required">
+                                            </div>
+                                            <table border="0" cellspacing="5" cellpadding="5">
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="code" id="checkCode" onclick="createCode()"></div>
+                                                    </td>
+                                                    <td><a href="#" onclick="createCode()">更換驗證碼</a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small" id="alertMessage">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <input onclick="validateCode();" class="btn btn-primary btn-user btn-block" type="submit" name="submit" value="登入">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <a href="./firstLogin.html" target="_blank" class="btn btn-primary btn-user btn-block">首次登入</a>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <a href="./forgetPW.html" target="_blank" class="btn btn-primary btn-user btn-block">忘記密碼</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- loading Modal -->
+    <div style="display:none" id="loader">
+        <div class="loader">
+            <div class="hexagon-container">
+                <div class="hexagon hex_1"></div>
+                <div class="hexagon hex_2"></div>
+                <div class="hexagon hex_3"></div>
+                <div class="hexagon hex_4"></div>
+                <div class="hexagon hex_5"></div>
+                <div class="hexagon hex_6"></div>
+                <div class="hexagon hex_7"></div>
+            </div>
+        </div>
+        <div class='loader-mask'></div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="vendor/custom/js/sb-admin-2.min.js"></script>
+    <script language="javascript" type="text/javascript">
+    createCode();
+    var code;
+
+    function createCode() {
+        code = "";
+        var codeLength = 4;
+        var checkCode = document.getElementById("checkCode");
+        // var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+        //     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        //     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+        var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        for (var i = 0; i < codeLength; i++) {
+            // var charNum = Math.floor(Math.random() * 52);
+            var charNum = Math.floor(Math.random() * 10);
+            code += codeChars[charNum];
+        }
+        if (checkCode) {
+            checkCode.className = "code";
+            checkCode.innerHTML = code;
+        }
+    }
+
+    function validateCode() {
+        var inputCode = document.getElementById("inputCode").value;
+        if (inputCode.length <= 0) {
+            alertMessage("請輸入驗證碼!!", "red");
+        } else if (inputCode.toUpperCase() != code.toUpperCase()) {
+            alertMessage("驗證碼輸入錯誤!!", "red");
+            createCode();
+        } else {
+            // alert("验证码正确！");
+            login_submit();
+        }
+    }
+    </script>
+    <script type="text/javascript">
+    function alertMessage(msg, color) {
+        document.getElementById('alertMessage').innerHTML = "<span style='color:" + color + "'>*" + msg + "</span>";
+    }
+
+    function login_submit() {
+        var inputAccount = document.getElementsByName('inputAccount')[0].value;
+        var inputPassword = document.getElementsByName('inputPassword')[0].value;
+
+        $.ajax({
+            type: "POST",
+            url: "pages/login/loginSubmit.php",
+            data: { inputAccount: inputAccount, inputPassword: inputPassword },
+            cache: false,
+            beforeSend: function() {
+                document.getElementById("loader").style.display = "flex";
+            },
+            complete: function() {
+                document.getElementById("loader").style.display = "none";
+            }
+        }).done(function(msg) {
+            if (msg == "0") {
+                // alert("登入成功!!");
+                if(inputAccount == inputPassword){
+                    window.location.href = "firstLoginData.html";
+                }else{
+                    window.location.href = "index.html";
+                }
+            } else if (msg == "1") {
+                // alert("帳號密碼錯誤!!");
+                alertMessage("帳號或密碼錯誤!!", "red");
+                createCode();
+            } else {
+                // alert("error：" + msg);
+                alertMessage(msg, "red");
+            }
+        });
+        return false;
+    }
+    </script>
+</body>
+
+</html>

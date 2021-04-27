@@ -1,0 +1,36 @@
+    /* section_course */
+    
+    .section_course {
+        height: auto;
+        padding: 50px 0;
+        text-align: center;
+        margin: 0 0 1em 0;
+    }
+    
+    .course__title {
+        color: rgba(0, 0, 0, 0.733);
+        font-size: 2em;
+        font-weight: 600;
+        margin: 5px 0;
+        line-height: 60px;
+    }
+    
+    .course__title__sub {
+        color: rgba(0, 0, 0, 0.733);
+        font-size: 1.2em;
+        margin: 10px 0;
+        line-height: 36px;
+    }
+    /* row course__item */
+    
+    div.row.course__item {
+        display: inline-block;
+        position: relative;
+        margin: auto;
+        width: 25vw;
+    }
+    
+    div.row.course__item img {
+        height: 480px;
+        overflow: hidden;
+    }

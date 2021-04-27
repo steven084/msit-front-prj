@@ -1,0 +1,372 @@
+     /* ============== Scroll-Down 滑鼠 ==================== */
+     
+     .scroll-down {
+         position: absolute;
+         display: block;
+         width: 30px;
+         height: 50px;
+         left: 50%;
+         bottom: -50px;
+         -webkit-transform: translateX(-50%);
+         transform: translateX(-50%);
+         border-radius: 15px;
+         border: #ffF 2px solid;
+     }
+     
+     .scroll-down::before {
+         content: "";
+         position: absolute;
+         display: block;
+         top: 10px;
+         left: 10px;
+         width: 5px;
+         height: 5px;
+         background: #fff;
+         border-radius: 50%;
+     }
+     
+     .scroll-down::after {
+         content: "";
+         position: absolute;
+         display: block;
+         top: 22px;
+         left: 9px;
+         width: 7px;
+         height: 7px;
+         border-left: #fff 1px solid;
+         border-bottom: #fff 1px solid;
+         -webkit-transform: rotate( -45deg);
+         transform: rotate( -45deg);
+         -webkit-animation: scrollup 1s infinite;
+         animation: scrollup 1s infinite;
+     }
+     /* ============================================ */
+     
+     span {
+         display: block;
+         line-height: 100%;
+     }
+     
+     #x_rotate {
+         transform: rotate(90deg);
+     }
+     /* ================== */
+     
+     .reel article a img {
+         border: 0 0 1px 0;
+         border: 1px solid lightgray;
+     }
+     /* =============== */
+     
+     #design_price {
+         padding: 10px 10px;
+         border: 1px solid lightgray;
+         width: 25%;
+         margin: 15px auto;
+     }
+     
+     #title_txt {
+         padding: 10px 0;
+     }
+     
+     #rent_case div {
+         position: relative;
+         /* display: inline-block; */
+         padding: 20px 45px;
+         color: #3e3947;
+         letter-spacing: 1px;
+     }
+     
+     #rent_case div::before {
+         left: 20%;
+         content: "";
+         position: absolute;
+         top: 50%;
+         -webkit-transform: translateY(-50%);
+         transform: translateY(-50%);
+         display: block;
+         width: 20%;
+         height: 1px;
+         background-color: #898989;
+     }
+     
+     #rent_case div::after {
+         right: 20%;
+         content: "";
+         position: absolute;
+         top: 50%;
+         -webkit-transform: translateY(-50%);
+         transform: translateY(-50%);
+         display: block;
+         width: 20%;
+         height: 1px;
+         background-color: #898989;
+     }
+     
+     #rent_case h3 {
+         margin: 1.7em 0 0 0;
+         color: #e84286;
+         font-size: 1.875em;
+         font-weight: 700;
+         text-align: center;
+     }
+     
+     #rent_case #dash_Slogan {
+         display: inline-block;
+         margin: auto;
+         display: block;
+         text-align: center;
+     }
+     
+     .hostplan_body {
+         display: flex;
+         text-align: center;
+         margin: 0;
+         padding: 0;
+         border: 2px solid lightgrey;
+     }
+     
+     .hostplan_card {
+         -webkit-box-flex: 1;
+         /* -ms-flex: 1 1 25%; */
+         flex: 1 1 25%;
+     }
+     
+     .hostplan_card_top {
+         padding: 20px 0;
+         margin-bottom: -2px;
+         border: 1px solid #fff;
+         background-color: lightgrey;
+         font-size: 1.5em;
+         font-weight: 700;
+     }
+     
+     .hostplan_card_body {
+         position: relative;
+         height: 8.13em;
+         border: 1px solid lightgrey;
+         background-color: #fff;
+     }
+     /* ===========年約+設計費============= */
+     
+     .priceset {
+         display: inline-block;
+     }
+     
+     .priceset span {
+         display: inline-block;
+         padding: 50px 0;
+         font-weight: 500;
+     }
+     
+     .priceset .priceset__main {
+         font-size: 2em;
+         font-weight: 700;
+     }
+     
+     .average_y_price {
+         position: absolute;
+         left: 30%;
+         top: 30%;
+     }
+     /* ============標準形象客製方案============= */
+     
+     .priceset1 {
+         text-align: center;
+     }
+     
+     .priceset1 span {
+         display: inline-block;
+     }
+     
+     .priceset1 .priceset__pre {
+         font-size: 2em;
+     }
+     
+     .priceset1 .priceset__main1 {
+         margin: 0 0 0 10px;
+         font-size: 3.8em;
+         font-weight: bold;
+     }
+     
+     .priceset1 span:nth-child(3) {
+         margin: 0 0 0 0.5em;
+         text-decoration: line-through;
+         font-size: 2em;
+     }
+     /* designplan__body */
+     
+     .container.special {
+         height: 100vh;
+     }
+     
+     .designplan__body {
+         background-color: #fff;
+         padding: 0 3em;
+         height: 50vh;
+     }
+     
+     .designplan__body>header>h2 {
+         padding: 1em 0 0 0;
+         font-size: 4em;
+     }
+     
+     .designplan__body>header>p {
+         padding: .5em;
+         font-size: 2em;
+         background: #ffc9df;
+     }
+     
+     .designplan__body>div:nth-child(3) {
+         width: 90%;
+         max-width: 30em;
+         margin: 20px auto;
+         padding: 15px 0;
+         border-top: #ccc 1px solid;
+         border-bottom: #ccc 1px solid;
+         font-size: 1.2em;
+         letter-spacing: 1px;
+         color: #8c8c8c;
+         text-align: center;
+     }
+     
+     .designplan__subtotal {
+         text-align: center;
+         padding: 10px;
+         font-size: 1.2em;
+         line-height: 1.7;
+         color: #8c8c8c;
+     }
+     
+     .designplan__subtotal span {
+         display: inline-block;
+     }
+     
+     .designplan__subtotal strong {
+         display: inline-block;
+         margin: 0 0 0 10px;
+         color: #e84185;
+     }
+     /* ===========免費加送七大功能及服務========== */
+     /* 大標、副標 */
+     
+     div.container.extra__serve {
+         height: 100vh;
+         padding: 0 0;
+         margin: auto;
+     }
+     
+     div.container.extra__serve>span:nth-child(1) {
+         text-align: center;
+         font-size: 2.2em;
+         padding: 60px 0;
+         font-weight: 700;
+     }
+     
+     div.container.extra__serve>span:nth-child(2) {
+         text-align: center;
+         font-size: 1.6em;
+         margin-bottom: 50px;
+         font-weight: 400;
+     }
+     /* Set table 寬值、底色*/
+     
+     div.container.extra__serve>table>tr {
+         width: 100%;
+     }
+     
+     table.img__addTxT {
+         background-color: #fff;
+     }
+     
+     table.img__addTxT tr td {
+         width: 20%;
+         padding: 30px 15px 30px 0;
+     }
+     /* td */
+     
+     .only_rightTxT span {
+         font-size: 0.8em;
+         letter-spacing: 1px;
+         padding-top: 20px;
+         line-height: 26px;
+     }
+     /* img__side 獨立設定 */
+     /* left */
+     
+     .img__side {
+         vertical-align: middle;
+     }
+     
+     .hr__inner__txt {
+         clear: both;
+         position: relative;
+         display: block;
+         border: 0;
+         top: 1em;
+         margin-bottom: 2em;
+         height: 1px;
+         border-top: solid 1px rgba(128, 128, 128, 0.2);
+         border-bottom: solid 1px rgba(128, 128, 128, 0.2);
+     }
+     
+     td.img__side>h3,
+     td.img__side>span {
+         margin: 30px 0 30px 0;
+     }
+     
+     td.img__side>button {
+         margin-top: 20px;
+         background-color: #fff;
+         border: 1px solid #e84185;
+         color: #e84185;
+         background-image: none;
+     }
+     
+     .img__side>button:hover {
+         background-color: #e84185;
+         border: 1px solid #e84185;
+         color: #fff;
+         background-image: none;
+     }
+     /* Right Text */
+     
+     td.img__side {
+         text-align: center;
+     }
+     
+     td.img__side.ntc {
+         padding: 0;
+         margin: 0;
+         border-left: 5px solid rgb(236, 236, 236);
+     }
+     
+     td.img__side.only_bottom {
+         border-bottom: 5px solid rgb(236, 236, 236);
+     }
+     
+     td.img__side.ntc img {
+         height: 8vh;
+     }
+     
+     td.img__side.ntc h5 {
+         font-size: 1rem;
+     }
+     
+     td.img__side.ntc span {
+         font-size: 0.8em;
+     }
+     /* =========== */
+     
+     div.sale_power {
+         padding: 0;
+         margin: 0;
+         width: 100%;
+         background-color: #fff;
+     }
+     
+     div.sale_power img {
+         margin: auto;
+         display: block;
+         width: 80%;
+     }

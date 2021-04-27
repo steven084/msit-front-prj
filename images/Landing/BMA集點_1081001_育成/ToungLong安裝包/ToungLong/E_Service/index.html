@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title name="Title">
+        東隆管理系統
+    </title>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font/Nunito.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="vendor/custom/css/sb-admin-2.css" rel="stylesheet">
+    <link href="vendor/custom/css/loader.css" rel="stylesheet">
+    <link href="vendor/custom/css/custom.css" rel="stylesheet">
+    <!-- pnotify -->
+    <link href="vendor/pnotify4.0/PNotifyBrightTheme.css" rel="stylesheet">
+    </link>
+    </link>
+    </link>
+    </link>
+    </link>
+    </link>
+    </meta>
+    </meta>
+    </meta>
+    </meta>
+    </meta>
+</head>
+
+<body class="FontSize" id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-20">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <i class="fab fa-fort-awesome-alt">
+                    </i>
+                </div>
+                <div class="sidebar-brand-text mx-3" name="Title2">
+                    東隆
+                    <sup>
+                        System
+                    </sup>
+                </div>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <input type="hidden" value="dashboard" />
+                <a class="nav-link" href="#" onclick="pageLoad('dashboard')">
+                    <i class="fas fa-home">
+                    </i>
+                    <span>
+                        系統最新消息
+                    </span>
+                </a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                <label for="CommunitySelect">
+                    目前社區：
+                </label>
+                <select class="custom-select" name="CommunitySelect" onchange="CommunityOnchange();" required="">
+                </select>
+                <label>
+                </label>
+            </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <div name="navItem">
+            </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle">
+                </button>
+            </div>
+            </hr>
+            </hr>
+            </hr>
+            </hr>
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div class="d-flex flex-column" id="content-wrapper">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" id="topbar">
+                    <!-- alertMsg -->
+                    <!-- <div class="custom-control custom-checkbox small" id="alertMessage"></div> -->
+                    <!-- alertMsg2 -->
+                    <!-- <div id="alertMsg" class="col-md-6 custom-control"></div> -->
+                    <div class="col-md-6 custom-control text-primary" name="topbarTitle">
+                    </div>
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop">
+                        <i class="fa fa-bars">
+                        </i>
+                    </button>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- </li> -->
+                        <div class="topbar-divider d-none d-sm-block">
+                        </div>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="userDropdown" role="button">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" name="userAccountName">
+                                </span>
+                                <i class="fas fa-user-circle fa-2x">
+                                </i>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div aria-labelledby="userDropdown" class="dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                                <a class="dropdown-item" data-target="#ChangePW" data-toggle="modal" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400">
+                                    </i>
+                                    變更密碼
+                                </a>
+                                <div class="dropdown-divider">
+                                </div>
+                                <a class="dropdown-item" data-target="#logoutModal" data-toggle="modal" href="#">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400">
+                                    </i>
+                                    登出
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- Change Password Modal-->
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="ChangePW" role="dialog" tabindex="-1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        確定要更改密碼?
+                                    </h5>
+                                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                        <span aria-hidden="true">
+                                            ×
+                                        </span>
+                                    </button>
+                                </div>
+                                <form class="" method="post" onsubmit="updatePWSubmit(); return false;">
+                                    <div class="modal-body">
+                                        <div class="md-form row">
+                                            <div class="col-md-12">
+                                                <label for="">
+                                                    <span style="color:red">
+                                                        *
+                                                    </span>
+                                                    原本密碼：
+                                                </label>
+                                                <input class="form-control" name="OriginalPW" required="" type="text">
+                                                </input>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="">
+                                                    <span style="color:red">
+                                                        *
+                                                    </span>
+                                                    更新密碼：
+                                                </label>
+                                                <input class="form-control" name="UpdatePW" required="" type="text">
+                                                </input>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="">
+                                                    <span style="color:red">
+                                                        *
+                                                    </span>
+                                                    確認密碼：
+                                                </label>
+                                                <input class="form-control" name="ConfirmPW" required="" type="text">
+                                                </input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" data-dismiss="modal" type="button">
+                                            取消
+                                        </button>
+                                        <input class="btn btn-primary" name="submit" type="submit" value="送出">
+                                        </input>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Logout Modal-->
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="logoutModal" role="dialog" tabindex="-1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <form id="frm-example" method="post" onsubmit="return pageLoad('logout')">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            確定要離開?
+                                        </h5>
+                                        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                            <span aria-hidden="true">
+                                                ×
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        如果您已經確定，請選擇"登出"。
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" data-dismiss="modal" type="button">
+                                            取消
+                                        </button>
+                                        <input class="btn btn-danger " type="submit" value="登出">
+                                        </input>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid" id="indexContent">
+                </div>
+            </div>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>
+                            Copyright © Yu-Cheng,Kuo 2019
+                        </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up">
+            </i>
+        </a>
+    </div>
+    <!-- loading Modal -->
+    <div id="loader" style="display:none">
+        <div class="loader">
+            <div class="hexagon-container">
+                <div class="hexagon hex_1">
+                </div>
+                <div class="hexagon hex_2">
+                </div>
+                <div class="hexagon hex_3">
+                </div>
+                <div class="hexagon hex_4">
+                </div>
+                <div class="hexagon hex_5">
+                </div>
+                <div class="hexagon hex_6">
+                </div>
+                <div class="hexagon hex_7">
+                </div>
+            </div>
+        </div>
+        <div class="loader-mask">
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js">
+    </script>
+    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <!-- Custom scripts for all pages-->
+    <script src="vendor/custom/js/sb-admin-2.min.js">
+    </script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js">
+    </script>
+    <!-- pnotify -->
+    <script src="vendor/pnotify4.0/PNotify.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyAnimate.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyButtons.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyCallbacks.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyCompat.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyConfirm.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyDesktop.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyHistory.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyMobile.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyNonBlock.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyReference.js">
+    </script>
+    <script src="vendor/pnotify4.0/PNotifyStyleMaterial.js">
+    </script>
+    <script type="text/javascript">
+    //  Initial loading
+    // document.getElementById("loader").style.display = "flex";
+    $("#indexContent").load("pages/login/loginCheck.php");
+    getIndexContent("userAccountName","");
+    getIndexContent("Title","");
+    getIndexContent("Title2","");
+    getSelectItemIndex("CommunitySelect");
+
+    $(document).ready(function(e) {
+        getIndexContent("navItem","");
+    });
+
+    function CommunityOnchange() {
+        var ul = document.getElementById('accordionSidebar');
+        var active = ul.getElementsByClassName("active");
+        var current = active[0].getElementsByTagName('input');
+        pageLoad(current[0].value);
+        getIndexContent("topbarTitle", "CommunitySelect");
+    }
+
+    function getSelectValue(SelectName) {
+        var e = document.getElementsByName(SelectName)[0];
+        var result = e.options[e.selectedIndex].value;
+        return result;
+    }
+
+    function getSelectItemIndex(functionName) {
+        $.ajax({
+            type: "POST",
+            url: "pages/start/getSelectItem.php",
+            data: {
+                functionName: functionName
+            },
+            cache: false
+            // ,
+            // beforeSend: function() {
+            //     document.getElementById("loader").style.display = "flex";
+            // },
+            // complete: function() {
+            //     document.getElementById("loader").style.display = "none";
+            // }
+        }).done(function(msg) {
+            document.getElementsByName(functionName)[0].innerHTML = msg;
+            if(functionName = "CommunitySelect"){
+                getIndexContent("topbarTitle", "CommunitySelect");
+            }
+        });
+    }
+
+    function pageLoadFunction(loadValue) {
+        setTimeout('console.log(setTimeout-1000)', 1000);
+        var url = new URL(window.location);
+        var value = url.searchParams.get("function");
+        if (value == "" || value == "#" || value == null) {
+            if (loadValue != "") {
+                pageLoad(loadValue);
+            } else {
+                pageLoad('dashboard');
+            }
+        } else {
+            pageLoad(value);
+        }
+    }
+
+    function pageLoad(pageValue) {
+        // alert(pageValue);
+        // document.getElementById("loader").style.display = "flex";
+        switch (pageValue) {
+            case 'dashboard':
+                $("#indexContent").load("pages/start/dashboard.php", pageLoadComplete(pageValue));
+                break;
+            case 'logout':
+                $("#indexContent").load("pages/login/logout.php", pageLoadComplete(pageValue));
+                break;
+            default:
+                $("#indexContent").load("pages/" + pageValue + ".php", pageLoadComplete(pageValue));
+                break;
+        }
+        return false;
+    }
+
+    function pageLoadComplete(pageValue) {
+        pageActiveClick(pageValue);
+        // document.getElementById("loader").style.display = "none";
+    }
+
+    function pageActiveClick(pageValue) {
+        var ul = document.getElementById('accordionSidebar');
+        var lis = ul.getElementsByTagName('li');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].getElementsByTagName('input')[0].value == pageValue) {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                lis[i].className += " active";
+            }
+        }
+    }
+
+    function getIndexContent(functionName, Value) {
+        if (Value != "") {
+            Value = getSelectValue(Value);
+        }
+        $.ajax({
+            type: "POST",
+            url: "pages/start/getIndexContent.php",
+            data: {
+                functionName: functionName,
+                Value: Value
+            },
+            cache: false
+            // ,
+            // beforeSend: function() {
+            //     document.getElementById("loader").style.display = "flex";
+            // },
+            // complete: function() {
+            //     document.getElementById("loader").style.display = "none";
+            // }
+        }).done(function(msg) {
+            msgSplit = msg.split('|');
+            document.getElementsByName(functionName)[0].innerHTML = msgSplit[0];
+            if (msgSplit.length > 1) {
+                pageLoadFunction(msgSplit[1]);
+            }
+        });
+    }
+
+    // // alertMessage
+    // function alertMessage(msg, color) {
+    //     document.getElementById('alertMessage').innerHTML = "<span style='color:" + color + "'>*" + msg + "</span>";
+    // }
+
+    // //alertMessage2
+    // function alertMsg(type, msg) {
+    //     var str = '<div class="alert alert-' + type + '" id="alertMsg1"><button type="button" class="close" data-dismiss="alert">x</button><strong>' + type + '! </strong>' + msg + '</div>';
+    //     document.getElementById('alertMsg').innerHTML = str;
+    //     $("#alertMsg1").fadeTo(8000, 500).slideUp(500, function() {
+    //         $("#alertMsg1").slideUp(500);
+    //     });
+    // }
+
+    //alertMessage3
+    function alertMsg(type, msg) {
+        switch (type) {
+            case 'success':
+                PNotify.success({
+                    title: 'Success!',
+                    text: msg,
+                    delay: 3000
+                });
+                break;
+            case 'notice':
+                PNotify.notice({
+                    title: 'Notice!',
+                    text: msg,
+                    delay: 3000
+                });
+                break;
+            case 'info':
+                PNotify.info({
+                    title: 'Info!',
+                    text: msg,
+                    delay: 3000
+                });
+                break;
+            case 'danger':
+            case 'error':
+                PNotify.error({
+                    title: 'Error!',
+                    text: msg,
+                    delay: 3000
+                });
+                break;
+            default:
+                PNotify.notice({
+                    title: 'Notice!',
+                    text: msg,
+                    delay: 3000
+                });
+        }
+    }
+
+    function updatePWSubmit() {
+        var OriginalPW = document.getElementsByName('OriginalPW')[0].value;
+        var UpdatePW = document.getElementsByName('UpdatePW')[0].value;
+        var ConfirmPW = document.getElementsByName('ConfirmPW')[0].value;
+
+        if (UpdatePW == ConfirmPW) {
+            $.ajax({
+                type: "POST",
+                url: "pages/login/updatePWSubmit.php",
+                data: {
+                    OriginalPW: OriginalPW,
+                    UpdatePW: UpdatePW
+                },
+                cache: false,
+                beforeSend: function() {
+                    document.getElementById("loader").style.display = "flex";
+                },
+                complete: function() {
+                    document.getElementById("loader").style.display = "none";
+                }
+            }).done(function(msg) {
+                if (msg == "0") {
+                    // alert("變更密碼成功!!");
+                    window.location.href = "index.html";
+                } else if (msg == "1") {
+                    // alertMessage("原本密碼錯誤!!", "red");
+                    alertMsg('danger', '原本密碼錯誤!!');
+                    // alert("原本密碼錯誤!!");
+                } else {
+                    // alertMessage(msg, "red");
+                    alertMsg('danger', msg);
+                    // alert("error：" + msg);
+                }
+            });
+        } else {
+            alert("更新密碼與確認密碼不相同!!");
+        }
+    }
+
+    function hideModal(ID) {
+        $(ID).removeClass("in");
+        $(".modal-backdrop").remove();
+        $('body').removeClass('modal-open');
+        $('body').css('padding-right', '');
+        $(ID).hide();
+    }
+    </script>
+</body>
+
+</html>

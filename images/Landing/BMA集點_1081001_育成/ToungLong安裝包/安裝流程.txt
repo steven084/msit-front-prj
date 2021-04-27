@@ -1,0 +1,13 @@
+1.安裝appserv-win32-8.6.0.exe
+(安裝過程請記住設定密碼)
+2.將ToungLong資料夾放入C:\AppServ\www\底下
+3.網址輸入127.0.0.1 ->進入資料庫
+4.點選左上角新增->新增資料庫命名為tounglongdb
+5.進入tounglongdb->匯入安裝包資料夾中的tounglongdb.sql
+6.進入C:\AppServ\www\ToungLong\E_Service\pages\connections\Account.php
+7.設定:
+$dbhost = "localhost"; =>基本不動
+$dbname = "tounglongdb"; =>資料庫名稱
+$dbuser = "root"; =>資料庫帳號
+$dbpass = "tounglong";=>資料庫密碼
+8.網址輸入(IP)127.0.0.1/ToungLong/E_Service/index.php

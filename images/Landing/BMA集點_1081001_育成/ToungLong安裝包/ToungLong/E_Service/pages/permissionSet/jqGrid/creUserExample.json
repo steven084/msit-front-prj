@@ -1,0 +1,50 @@
+{
+    "userdata":
+    {
+        "userName": "",
+        "passWord": "",
+        "householdID": "END"
+    },
+    "rows": [
+    {
+        "userName": "123",
+        "passWord": "456",
+        "householdID": "1"
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    },{
+        "userName": "",
+        "passWord": "",
+        "householdID": ""
+    }]
+}
